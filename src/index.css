@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.cards{
+  background-color: rgb(197, 193, 193);
+  border-radius: 2%;
+}
+
+.botinfo{
+  background-color: rgb(240, 240, 240);
+  word-wrap: break-word;
+}
+

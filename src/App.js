@@ -1,11 +1,10 @@
-import './App.css';
+import React from 'react'
+import BotCollection from './components/BotCollection'
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
- 
+    <div>
+      <BotCollection/>
     </div>
-  );
+  )
 }
-
-export default App;
