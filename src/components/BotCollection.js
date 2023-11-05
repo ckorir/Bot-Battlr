@@ -31,6 +31,22 @@ export default function BotCollection() {
               <div>
                 <h5>{bot.name}</h5>
                 <p>{bot.catchphrase}</p>
+                <div>
+                  <ul className='stats'>
+                    <li>
+                      <i class="fa-solid fa-heart-pulse mx-1"></i>
+                      {bot.health}
+                    </li>
+                    <li>
+                      <i class="fa-solid fa-bolt-lightning mx-1"></i>
+                      {bot.damage}
+                    </li>
+                    <li>
+                    <i class="fa-solid fa-shield-halved mx-1"></i>
+                      {bot.armor}
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
