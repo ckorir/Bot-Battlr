@@ -5,24 +5,25 @@ export default function BotCollection() {
   const [bots, setBots] = useState([]);
   const [yourBotCollection, setYourBotCollection] = useState([]);
 
-
   useEffect(() => {
     // calls the fetchBots function
     fetchBots();
   }, []);
 
+
+  // Fetch Bots from Server
   function fetchBots() {
     const boturl = 'http://localhost:8001/bots';
 
     fetch(boturl)
-      .then((response) => response.json()) // Corrected this line
+      .then((response) => response.json())
       .then(data => setBots(data))
       .catch(error => console.error(error)); // Add error handling
 
-    // The following console.log will not show the updated state immediately due to asynchronous behavior.
     console.log(bots);
   }
 
+  // Add to Army
   const addToYourBotArmy = (bot) => {
     if (!yourBotCollection.find(b => b.id === bot.id)) {
       setYourBotCollection([...yourBotCollection, bot]);
@@ -30,12 +31,13 @@ export default function BotCollection() {
     console.log(bot)
   };
 
+  // Release from Army
   const releaseFromYourBotArmy = (bot) => {
     setYourBotCollection(yourBotCollection.filter(b => b.id !== bot.id));
   };
 
+  // Delete Bot from Server
   const dischargeBot = (bot) => {
-
     fetch(`http://localhost:8001/bots/${bot.id}`, {
       method: 'DELETE'
     })
@@ -45,7 +47,7 @@ export default function BotCollection() {
     .catch(error => console.error(error));
   };
 
-  // Render your component with the updated `bots` state here.
+  // Render component with the updated bots state.
   return (
     <div className="container row mx-auto">
       <YourBotArmy bots={yourBotCollection} releaseFromYourBotArmy={releaseFromYourBotArmy} dischargeBot={dischargeBot} />
