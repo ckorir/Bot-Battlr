@@ -35,6 +35,7 @@ export default function BotCollection() {
   };
 
   const dischargeBot = (bot) => {
+
     fetch(`http://localhost:8001/bots/${bot.id}`, {
       method: 'DELETE'
     })
@@ -50,8 +51,8 @@ export default function BotCollection() {
       <YourBotArmy bots={yourBotCollection} releaseFromYourBotArmy={releaseFromYourBotArmy} dischargeBot={dischargeBot} />
       {bots.map(bot => (
         <div className='col-md-3' key={bot.id}>
-          <div className='cards my-4' onClick={() => addToYourBotArmy(bot)}>
-            <img src={bot.avatar_url} alt='bot image' className='img-fluid' />
+          <div className='cards my-4'>
+            <img src={bot.avatar_url} alt='bot image' className='img-fluid' onClick={() => addToYourBotArmy(bot)}/>
             <div className='col botinfo p-4'>
               <div>
                 <h5>{bot.name}</h5>
@@ -69,6 +70,9 @@ export default function BotCollection() {
                     <li>
                     <i className="fa-solid fa-shield-halved mx-1"></i>
                       {bot.armor}
+                    </li>
+                    <li>
+                      <i className="fa-solid fa-x" onClick={() => dischargeBot(bot)}></i>
                     </li>
                   </ul>
                 </div>

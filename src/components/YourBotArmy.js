@@ -11,7 +11,25 @@ export default function YourBotArmy({ bots, releaseFromYourBotArmy, dischargeBot
               <div>
                 <h5>{bot.name}</h5>
                 <p>{bot.catchphrase}</p>
-                <button onClick={() => dischargeBot(bot)}>Discharge Forever</button>
+                <div>
+                  <ul className='stats'>
+                    <li>
+                      <i className="fa-solid fa-heart-pulse mx-1"></i>
+                      {bot.health}
+                    </li>
+                    <li>
+                      <i className="fa-solid fa-bolt-lightning mx-1"></i>
+                      {bot.damage}
+                    </li>
+                    <li>
+                    <i className="fa-solid fa-shield-halved mx-1"></i>
+                      {bot.armor}
+                    </li>
+                    <li>
+                      <i className="fa-solid fa-x" onClick={() => dischargeBot(bot)}></i>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
