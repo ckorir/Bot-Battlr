@@ -17,6 +17,10 @@ code {
   border-radius: 2%;
 }
 
+img:hover{
+  cursor: pointer;
+}
+
 .botinfo{
   background-color: rgb(240, 240, 240);
   word-wrap: break-word;

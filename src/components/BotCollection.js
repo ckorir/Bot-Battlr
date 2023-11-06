@@ -42,10 +42,12 @@ export default function BotCollection() {
       method: 'DELETE'
     })
     .then(() => {
-      setYourBotCollection(yourBotCollection.filter(b => b.id !== bot.id));
+      const updatedBot = yourBotCollection.filter(b => b.id !== bot.id);
+      setYourBotCollection(updatedBot);
     })
     .catch(error => console.error(error));
   };
+
 
   // Render component with the updated bots state.
   return (
